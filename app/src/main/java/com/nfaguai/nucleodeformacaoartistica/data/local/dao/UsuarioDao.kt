@@ -23,4 +23,7 @@ interface UsuarioDao {
 
     @Query("SELECT * FROM usuarios WHERE funcao = 'professor' AND ativo = 1 ORDER BY nome")
     fun listarProfessoresAtivos(): Flow<List<Usuario>>
+
+    @Query("SELECT COUNT(*) FROM usuarios")
+    suspend fun contar(): Int
 }
