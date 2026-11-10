@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import com.nfaguai.nucleodeformacaoartistica.ui.screens.chamada.ChamadaRoute
+import com.nfaguai.nucleodeformacaoartistica.ui.screens.home.HomeRoute
 import com.nfaguai.nucleodeformacaoartistica.ui.theme.NucleoDeFormacaoArtistica2Theme
 
 class MainActivity : ComponentActivity() {
@@ -13,10 +14,9 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             NucleoDeFormacaoArtistica2Theme {
-                ChamadaRoute(
-                    turmaId = "tur-violao",
+                HomeRoute(
                     usuarioId = "prof-cris",
-                    onVoltar = { finish() },
+                    onAbrirTurma = {},
                     onSelecionarAba = {},
                 )
             }
