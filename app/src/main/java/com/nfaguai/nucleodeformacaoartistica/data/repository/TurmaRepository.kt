@@ -2,6 +2,7 @@ package com.nfaguai.nucleodeformacaoartistica.data.repository
 
 import com.nfaguai.nucleodeformacaoartistica.data.local.dao.TurmaDao
 import com.nfaguai.nucleodeformacaoartistica.data.local.entity.Turma
+import com.nfaguai.nucleodeformacaoartistica.data.local.utils.DiasSemana
 import kotlinx.coroutines.flow.Flow
 import java.time.LocalDate
 
@@ -13,7 +14,7 @@ class TurmaRepository(private val dao: TurmaDao) {
         dao.listarPorProfessor(professorId)
 
     fun turmasDeHoje(professorId: String): Flow<List<Turma>> =
-        dao.listarDoProfessorNoDia(professorId, LocalDate.now().dayOfWeek.value)
+        dao.listarDoProfessorNoDia(professorId, DiasSemana.hoje())
 
     suspend fun salvar(turma: Turma) = dao.salvar(turma)
     suspend fun buscarPorId(id: String) = dao.buscarPorId(id)

@@ -35,6 +35,6 @@ interface PresencaDao {
     @Query("SELECT * FROM presencas WHERE aluno_id = :alunoId")
     fun listarDoAluno(alunoId: String): Flow<List<Presenca>>
 
-    @Query("SELECT COUNT(*) FROM presencas WHERE aluno_id = :alunoId AND presente = :status")
-    suspend fun contarPorStatus(alunoId: String, status: String): Int
+    @Query("SELECT COUNT(*) FROM presencas WHERE aluno_id = :alunoId AND presente = :presente")
+    suspend fun contarPorStatus(alunoId: String, presente: Boolean): Int
 }

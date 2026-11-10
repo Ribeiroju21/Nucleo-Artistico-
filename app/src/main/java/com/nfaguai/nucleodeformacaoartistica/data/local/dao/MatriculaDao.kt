@@ -35,7 +35,7 @@ interface MatriculaDao {
         SELECT t.* FROM turmas t
         INNER JOIN matriculas m ON m.turma_id = t.id
         WHERE m.aluno_id = :alunoId AND m.ativo = 1 AND t.ativo = 1
-        ORDER BY t.dia_semana, t.hora_inicio
+        ORDER BY t.dias_semana, t.hora_inicio
         """
     )
     fun turmasDoAluno(alunoId: String): Flow<List<Turma>>

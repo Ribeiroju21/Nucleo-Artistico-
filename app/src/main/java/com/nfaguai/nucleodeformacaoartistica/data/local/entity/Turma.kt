@@ -24,11 +24,12 @@ import java.util.UUID
 data class Turma(
     val id: String = UUID.randomUUID().toString(),
     val nome: String,
-    @ColumnInfo(name = "dia_semana") val diaSemana: Int,
+    @ColumnInfo(name = "dias_semana") val diasSemana: Int,
     @ColumnInfo(name = "hora_inicio") val horaInicio: String,
     @ColumnInfo(name = "hora_fim") val horaFim: String,
     @ColumnInfo(name = "idade_minima") val idadeMinima: Int? = null,
     @ColumnInfo(name = "idade_maxima") val idadeMaxima: Int? = null,
     @ColumnInfo(name = "professor_id") val professorId: String,
-    val ativo: Boolean = true
+    val ativo: Boolean = true,
+    val sala: String,
 )

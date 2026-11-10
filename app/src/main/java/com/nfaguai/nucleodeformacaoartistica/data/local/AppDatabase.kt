@@ -26,7 +26,7 @@ import com.nfaguai.nucleodeformacaoartistica.data.local.entity.Usuario
         Aula::class,
         Presenca::class
     ],
-    version = 1,
+    version = 3,
     exportSchema = true
 )
 abstract class AppDatabase : RoomDatabase() {
@@ -48,7 +48,10 @@ abstract class AppDatabase : RoomDatabase() {
                     context.applicationContext,
                     AppDatabase::class.java,
                     "nucleo.db"
-                ).build().also { INSTANCE = it }
+                )
+                    // TODO - somente em desenvolvimento para dados mockados. tirar quando tiver api
+                    .fallbackToDestructiveMigration(dropAllTables = true)
+                    .build().also { INSTANCE = it }
             }
     }
 }
